@@ -11,6 +11,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .border {
@@ -31,15 +32,33 @@ body {
 
 .list {
     margin: 0px;
-    padding-right: 40px;
     font-size: 0.2em;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-left: 0px;
+    list-style: none;
+    list-style-position: outside;
+    cursor: pointer;
+}
+
+.menu-item {
+    padding-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 1cm;
+}
+.menu-row {
+    width: 100%;
+}
+
+.menu-row:hover {
+    background-color: rgb(177, 177, 177);
+    color: white;
+    font-weight: bold;
 }
 
 .body {
     font-size: 0.2em;
     padding: 10px;
+    flex: 1 1 100%;
 }
 
 .entete {
@@ -52,3 +71,31 @@ body {
     grid-template-columns: 30px 1fr 2fr 1fr;
     text-align: center;
 }
+
+.inscription-grid {
+    display: grid;
+    grid-template-columns: 150px 200px;
+    grid-row-gap: 4px;
+    grid-column-gap: 30px;
+    text-align: left;
+    padding: 10px;
+}
+
+.menu {
+    margin-right: 4px;
+    width: 300px;
+    box-sizing: border-box;
+
+}
+
+.highlighted {
+    background-color: rgb(177, 177, 177);
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
