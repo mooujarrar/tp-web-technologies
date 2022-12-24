@@ -13,10 +13,13 @@
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
 			defer
 		></script>
+
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	</head>
 	
 	<body>
+		<?php include 'db_manager.php';?>
+
 		<div class="header border">	
 				<img class="logo" src="uqtr.png" width="400px" height="auto">
 				<span class="titre"> Loisirs pour les étudiants! </span>
@@ -27,6 +30,7 @@
 					<li class="menu-row"><p class="menu-item">Acceuil</p></li>
 					<li class="menu-row"><p class="menu-item">S'inscrire</p></li>
 					<li class="menu-row"><p class="menu-item">Localiser une activité</p></li>
+					<li class="menu-row"><p class="menu-item">Authentication</p></li>
 				</ul>
 			</div>
 			<div class="body border">
@@ -61,7 +65,7 @@
 				</div>
 				<div class="inscription">
 					<span class="entete">Inscrivez-vous:</span>
-					<form name="inscriptionForm" onsubmit="return validateForm()">
+					<form name="inscriptionForm" onsubmit="return authenticate()">
 						<div class="inscription-grid">
 							<label for="fname">Nom</label>
 							<input type="text" id="fname" name="fname" value="" required>
@@ -92,6 +96,21 @@
 				<div class="carte">
 					<span class="entete">Carte:</span>
 					<div id="map"></div>
+				</div>
+				<div class="authentication">
+					<span class="entete">Connexion:</span>
+					<p>Veuillez renseigner vos identifiants pour vous connecter.</p>
+					<form name="authenticationForm" onsubmit="return authenticate(htmlentities($_GET['fusername']), htmlentities($_GET['fpassword']))">
+						<div class="inscription-grid">
+							<label for="fusername">Identifiant</label>
+							<input type="text" id="fusername" name="fusername" value="" required>
+							<label for="fpassword">Mot de passe</label>
+							<input type="password" id="fpassword" name="fpassword" value="" required>
+							<span>Basculer la visibilité du mot de passe</span>
+							<input type="checkbox" onclick="toggleVisibility()">
+						</div>
+						<input type="submit" value="Connexion">
+				  	</form> 
 				</div>
 			</div>
 		</div>

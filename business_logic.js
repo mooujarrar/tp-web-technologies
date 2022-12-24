@@ -1,7 +1,17 @@
 function validateForm() {
-    // Here is the custom logic of validation
+  // Here is the custom logic of validation
 }
 
+function toggleVisibility() {
+  var x = document.getElementById("fpassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+/** ----------- (Map side) ------------------------------- */
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
@@ -19,8 +29,19 @@ function initMap() {
 }
 
 window.initMap = initMap;
+/** ---------------------------------------------------- */
+
 
 $(document).ready(function () {
+
+  // load php file
+  /*$.ajax({
+    url:'http://127.0.0.1:5500/db_manager.php',
+    type:'GET', 
+   success: () => { console.log('connection to db succeded') }
+  });*/
+
+
   // By default the Acceuil page is shown at the beginning
   $(".acceuil").show();
   $(".menu-row:first").css({
@@ -30,6 +51,7 @@ $(document).ready(function () {
   });
   $(".inscription").hide();
   $(".carte").hide();
+  $(".authentication").hide();
 
   // Navigation logic:
 
@@ -39,6 +61,7 @@ $(document).ready(function () {
 
     $(".inscription").hide();
     $(".carte").hide();
+    $(".authentication").hide();
     $(".acceuil").show();
     // Restyiling the buttons
     $(".menu-row:first").css({
@@ -60,8 +83,15 @@ $(document).ready(function () {
         color: "black",
         "font-weight": "normal",
       });
+    $(".menu-item")
+      .eq(3)
+      .css({
+        "background-color": "white",
+        color: "black",
+        "font-weight": "normal",
+      });
   });
-  // second button of the menu --> acceuil
+  // second button of the menu --> s'inscrire
   $(".menu-item")
     .eq(1)
     .click(function () {
@@ -69,6 +99,7 @@ $(document).ready(function () {
 
       $(".acceuil").hide();
       $(".carte").hide();
+      $(".authentication").hide();
       $(".inscription").show();
       // Restyiling the buttons
       $(".menu-item")
@@ -90,14 +121,22 @@ $(document).ready(function () {
           color: "black",
           "font-weight": "normal",
         });
+      $(".menu-item")
+        .eq(3)
+        .css({
+          "background-color": "white",
+          color: "black",
+          "font-weight": "normal",
+        });
     });
-  // third button of the menu --> acceuil
+  // third button of the menu --> localiser une activité
   $(".menu-item")
     .eq(2)
     .click(function () {
       // Show/Hide the right content
       $(".acceuil").hide();
       $(".inscription").hide();
+      $(".authentication").hide();
       $(".carte").show();
       // Restyiling the buttons
       $(".menu-item")
@@ -114,6 +153,51 @@ $(document).ready(function () {
       });
       $(".menu-item")
         .eq(1)
+        .css({
+          "background-color": "white",
+          color: "black",
+          "font-weight": "normal",
+        });
+      $(".menu-item")
+        .eq(3)
+        .css({
+          "background-color": "white",
+          color: "black",
+          "font-weight": "normal",
+        });
+    });
+
+  // second button of the menu --> acceuil
+  $(".menu-item")
+    .eq(3)
+    .click(function () {
+      // Show/Hide the right content
+      $(".acceuil").hide();
+      $(".inscription").hide();
+      $(".carte").hide();
+      $(".authentication").show();
+      // Restyiling the buttons
+      $(".menu-item")
+        .eq(3)
+        .css({
+          "background-color": "grey",
+          color: "white",
+          "font-weight": "bold",
+        });
+      $(".menu-row:first").css({
+        "background-color": "white",
+        color: "black",
+        "font-weight": "normal",
+      });
+      $(".menu-item")
+        .eq(1)
+        .css({
+          "background-color": "white",
+          color: "black",
+          "font-weight": "normal",
+        });
+      $(".menu-item")
+        .eq(2)
         .css({
           "background-color": "white",
           color: "black",
