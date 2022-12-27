@@ -18,8 +18,6 @@
 	</head>
 	
 	<body>
-		<?php include 'db_manager.php';?>
-
 		<div class="header border">	
 				<img class="logo" src="uqtr.png" width="400px" height="auto">
 				<span class="titre"> Loisirs pour les étudiants! </span>
